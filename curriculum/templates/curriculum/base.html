@@ -1,0 +1,114 @@
+{%extends 'home/base.html' %}
+{% load static %}
+
+{% block additional_header %}
+<link href="{% static 'curriculum/curriculum.css' %}" rel="stylesheet" />
+{% endblock additional_header %}
+
+{% block content %}
+<div class="container">
+    <div class="row">
+        <!-- Content Column -->
+        <div class="col-lg-8">
+            <h1 class="mt-4">{{ title }}</h1>
+            <p class="lead">
+                <small>karya</small>
+                <a>{{ author }}</a>
+            </p>
+            <hr>
+            <!-- Preview Image -->
+            <img class="img-fluid rounded" src="{% static '' %}{{ cover_img }}" alt="" style="width:900px; height:300px;">
+            <hr>
+            <!-- Post Content -->
+            <p class="lead">{{ subtitle }}</p>
+            {% block material %}
+            {% endblock material %}
+<!--            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ut, tenetur natus doloremque laborum quos iste-->
+<!--                ipsum rerum obcaecati impedit odit illo dolorum ab tempora nihil dicta earum fugiat. Temporibus,-->
+<!--                voluptatibus.</p>-->
+<!--            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eos, doloribus, dolorem iusto blanditiis unde-->
+<!--                eius illum consequuntur neque dicta incidunt ullam ea hic porro optio ratione repellat perspiciatis.-->
+<!--                Enim, iure!</p>-->
+<!--            <blockquote class="blockquote">-->
+<!--                <p class="mb-0">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer posuere erat a-->
+<!--                    ante.</p>-->
+<!--                <footer class="blockquote-footer">Someone famous in-->
+<!--                    <cite title="Source Title">Source Title</cite>-->
+<!--                </footer>-->
+<!--            </blockquote>-->
+<!--            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Error, nostrum, aliquid, animi, ut quas placeat-->
+<!--                totam sunt tempora commodi nihil ullam alias modi dicta saepe minima ab quo voluptatem obcaecati?</p>-->
+<!--            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Harum, dolor quis. Sunt, ut, explicabo, aliquam-->
+<!--                tenetur ratione tempore quidem voluptates cupiditate voluptas illo saepe quaerat numquam recusandae?-->
+<!--                Qui, necessitatibus, est!</p>-->
+            <hr>
+            <!-- Comments Form -->
+            <div class="card my-4">
+                <h5 class="card-header">Tinggalkan komen anda:</h5>
+                <div class="card-body">
+                    <form>
+                        <div class="form-group">
+                            <textarea class="form-control" rows="1" placeholder="Nama anda" wrap="soft"></textarea>
+                            <br>
+                            <textarea class="form-control" rows="3" placeholder="Komen"></textarea>
+                        </div>
+                        <button type="submit" class="btn btn-primary">Hantar</button>
+                    </form>
+                </div>
+            </div>
+            <!-- Single Comment -->
+            <div class="media mb-4">
+                <img class="d-flex mr-3 rounded-circle" src="http://placehold.it/50x50" alt="">
+                <div class="media-body">
+                    <h5 class="mt-0">Commenter Name</h5>
+                    Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin. Cras
+                    purus odio, vestibulum in vulputate at, tempus viverra turpis. Fusce condimentum nunc ac nisi
+                    vulputate fringilla. Donec lacinia congue felis in faucibus.
+                </div>
+            </div>
+        </div>
+        <!-- Sidebar Widgets Column -->
+        <div class="col-md-4">
+            <!-- Hyperlinks Widget -->
+            <div class="card my-4">
+                <h5 class="card-header">Kurikulum</h5>
+                <div class="card-body">
+                    <div class="row" style="padding-left: 20px;">
+                        <ul class="list-unstyled mb-0">
+                            <li>
+                                <a href="/computational_thinking">Teknik Pemikiran Komputasional</a>
+                            </li>
+                            <li>
+                                <a href="#">Perwakilan Data</a>
+                            </li>
+                            <li>
+                                <a href="#">Algorithma</a>
+                            </li>
+                            <li>
+                                <a href="#">Kod Arahan</a>
+                            </li>
+                            <hr>
+                            <li>
+                                <a href="#">Kalkulator Penukaran Asas</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <!-- Quote -->
+            <div class="card my-4">
+                <h5 class="card-header">Kata-kata Hikmat</h5>
+                <div class="card-body">
+                    <blockquote class="blockquote">
+                <p class="mb-0">{{ quote }}</p>
+                <footer class="blockquote-footer">
+                    <cite title="Source Title">{{ quote_author }}</cite>
+                </footer>
+            </blockquote>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script src="{% static 'curriculum/base.js' %}"></script>
+{% endblock content %}

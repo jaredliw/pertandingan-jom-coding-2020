@@ -3,5 +3,8 @@ from . import views
 
 
 urlpatterns = [
-    path('', views.curriculum, name='curriculum'),
+    path('computational_thinking', views.comp_t, name='comp_t'),
+    path('data_representation', views.data_r, name='data_r'),
+    path('algorithms', views.algo, name='algo'),
+    path('code', views.code, name='code'),
 ]
