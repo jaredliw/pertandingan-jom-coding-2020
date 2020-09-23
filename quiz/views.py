@@ -1,11 +1,17 @@
 from django.shortcuts import render
+from .models import Question
 
+
+kwargs = {
+    "nav_styling": "background-color: #FFF;",
+    "nav_text_styling": "color: #000;"
+}
 
 def quiz1(request):
-    kwargs["title"] = "Teknik Pemikiran Komputasional"
-    kwargs["cover_img"] = "images/1.jpg"
-    kwargs["subtitile"] = "to be added..."
-    return render(request, 'curriculum/comp_t.html', kwargs)
+    kwargs["quiz_name"] = "Hello"
+    kwargs["page_now"] = "1"
+    kwargs["page_total"] = ""
+    return render(request, 'quiz/base.html', kwargs)
 
 # def data_r(request):
 #     kwargs["title"] = "Perwakilan Data"
