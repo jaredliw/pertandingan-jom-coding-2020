@@ -3907,13 +3907,6 @@ input[type=button].btn-block {
   cursor: default;
 }
 
-.nav-logo {
-    width: 6%;
-    height: 6%;
-    padding-left: 5px;
-    padding-right: 5px;
-}
-
 .nav-tabs {
   border-bottom: 1px solid #dee2e6;
 }
