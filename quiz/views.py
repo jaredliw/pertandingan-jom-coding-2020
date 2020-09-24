@@ -1,4 +1,5 @@
 from django.shortcuts import render
+from django.contrib import messages
 from .models import Question
 
 
@@ -11,6 +12,12 @@ def quiz1(request):
     kwargs["quiz_name"] = "Hello"
     kwargs["page_now"] = "1"
     kwargs["page_total"] = ""
+    kwargs["answer"] = "<script>"
+    kwargs["op1"] = "Hello"
+    if request.method == "POST":
+        print("received", dir(request), request.content_params, request.body)
+        messages.success(request, "Tahniah! Jawapan anda adalah betul!")
+        messages.error(request, "Maaf, jawpan betul ialah A.")
     return render(request, 'quiz/base.html', kwargs)
 
 # def data_r(request):

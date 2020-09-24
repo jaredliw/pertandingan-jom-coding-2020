@@ -16,44 +16,54 @@
                         <h4>{{ quiz_name }}</h4><span>({{ pager_now }} daripada {{ page_total }})</span>
                     </div>
                 </div>
-                <div class="question bg-white p-3 border-bottom">
+                <form class="question bg-white p-3 border-bottom" id="q_form" method="POST">
+                    {% csrf_token %}
                     <div class="d-flex flex-row align-items-center question-title">
                         <h3 class="text-danger">S{{ page_now }}.</h3>
-                        <h5 class="mt-1 ml-2">{{ Question }}</h5>
+                        <h5 class="mt-1 ml-2">{{ question }}</h5>
                     </div>
-                    <div class="ans ml-2">
-                        <label class="radio"> <input type="radio" name="{{ op1 }}" value="{{ op1 }}">
-                            <span>A. {{ op1 }}</span>
-                        </label>
-                    </div>
-                    <div class="ans ml-2">
-                        <label class="radio"> <input type="radio" name="{{ op2 }}" value="{{ op2 }}">
-                            <span>B. {{ op2 }}</span>
-                        </label>
-                    </div>
-                    <div class="ans ml-2">
-                        <label class="radio"> <input type="radio" name="{{ op3 }}" value="{{ op3 }}">
-                            <span>C. {{ op3 }}</span>
-                        </label>
-                    </div>
-                    <div class="ans ml-2">
-                        <label class="radio"> <input type="radio" name="{{ op4 }}" value="{{ op4 }}">
-                            <span>D. {{ op24 }}</span>
-                        </label>
-                    </div>
-                </div>
-                <div class="alert alert-success" role="alert">
-                  Tahniah! Jawapan anda adalah betul!
-                </div>
-                <div class="alert alert-danger" role="alert">
-                  Maaf, jawpan betul ialah A.
-                </div>
+                    <fieldset id="option_group">
+                        <div class="ans ml-2">
+                            <label class="radio"> <input name="option_group" type="radio" value="{{ op1 }}">
+                                <span>A. {{ op1 }}</span>
+                            </label>
+                        </div>
+                        <div class="ans ml-2">
+                            <label class="radio"> <input name="option_group" type="radio" value="{{ op2 }}">
+                                <span>B. {{ op2 }}</span>
+                            </label>
+                        </div>
+                        <div class="ans ml-2">
+                            <label class="radio"> <input name="option_group" type="radio" value="{{ op3 }}">
+                                <span>C. {{ op3 }}</span>
+                            </label>
+                        </div>
+                        <div class="ans ml-2">
+                            <label class="radio"> <input name="option_group" type="radio" value="{{ op4 }}">
+                                <span>D. {{ op4 }}</span>
+                            </label>
+                        </div>
+                    </fieldset>
+                </form>
+                {% if messages %}
+                    {% for message in messages %}
+                        <div class="alert alert-{{ message.tags }}">
+                            {{ message }}
+                        </div>
+                    {% endfor %}
+                {% endif %}
                 <div class="d-flex flex-row justify-content-between align-items-center p-3 bg-white">
-                    <button class="btn btn-primary d-flex align-items-center btn-danger" type="button"><i
-                            class="fa fa-angle-left mt-1 mr-1"></i>Sebelumnya
+                    <button class="btn btn-primary d-flex align-items-center btn-danger" type="button">
+                        <i class="fa fa-angle-left mt-1 mr-1"></i>
+                        Sebelumnya
+                    </button>
+                    <button class="btn btn-primary d-flex align-items-center btn-warning" type="submit" form="q_form">
+                        Hantar
                     </button>
                     <button class="btn btn-primary border-success align-items-center btn-success" type="button">
-                        Seterusnya<i class="fa fa-angle-right ml-2"></i></button>
+                        Seterusnya
+                        <i class="fa fa-angle-right ml-2"></i>
+                    </button>
                 </div>
             </div>
         </div>
