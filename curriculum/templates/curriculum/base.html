@@ -6,7 +6,7 @@
 {% endblock additional_header %}
 
 {% block content %}
-<div class="container">
+<div class="container pt-4">
     <div class="row">
         <!-- Content Column -->
         <div class="col-lg-8">
@@ -17,55 +17,48 @@
             </p>
             <hr>
             <!-- Preview Image -->
-            <img class="img-fluid rounded" src="{% static '' %}{{ cover_img }}" alt="" style="width:900px; height:300px;">
+            <img class="img-fluid rounded" src="{% static '' %}{{ cover_img }}" alt="" width="900px" height="300px">
             <hr>
-            <!-- Post Content -->
+            <!-- Content -->
             <p class="lead">{{ subtitle }}</p>
             {% block material %}
             {% endblock material %}
-<!--            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ut, tenetur natus doloremque laborum quos iste-->
-<!--                ipsum rerum obcaecati impedit odit illo dolorum ab tempora nihil dicta earum fugiat. Temporibus,-->
-<!--                voluptatibus.</p>-->
-<!--            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eos, doloribus, dolorem iusto blanditiis unde-->
-<!--                eius illum consequuntur neque dicta incidunt ullam ea hic porro optio ratione repellat perspiciatis.-->
-<!--                Enim, iure!</p>-->
-<!--            <blockquote class="blockquote">-->
-<!--                <p class="mb-0">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer posuere erat a-->
-<!--                    ante.</p>-->
-<!--                <footer class="blockquote-footer">Someone famous in-->
-<!--                    <cite title="Source Title">Source Title</cite>-->
-<!--                </footer>-->
-<!--            </blockquote>-->
-<!--            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Error, nostrum, aliquid, animi, ut quas placeat-->
-<!--                totam sunt tempora commodi nihil ullam alias modi dicta saepe minima ab quo voluptatem obcaecati?</p>-->
-<!--            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Harum, dolor quis. Sunt, ut, explicabo, aliquam-->
-<!--                tenetur ratione tempore quidem voluptates cupiditate voluptas illo saepe quaerat numquam recusandae?-->
-<!--                Qui, necessitatibus, est!</p>-->
+            <hr>
+            <p>Uji kefahaman anda tentang topik ini dengan mengambil kuiz di bawah:</p>
+            <div class="text-center">
+                <form action="/">
+                    <input type="submit" class="btn btn-primary" value="Kuiz"/>
+                </form>
+            </div>
             <hr>
             <!-- Comments Form -->
             <div class="card my-4">
                 <h5 class="card-header">Tinggalkan komen anda:</h5>
                 <div class="card-body">
-                    <form>
+                    <form method="POST">
+                        {% csrf_token %}
                         <div class="form-group">
-                            <textarea class="form-control" rows="1" placeholder="Nama anda" wrap="soft"></textarea>
+                            <input class="form-control" placeholder="Nama anda" name="username"/>
                             <br>
-                            <textarea class="form-control" rows="3" placeholder="Komen"></textarea>
+                            <textarea class="form-control" rows="3" placeholder="Komen" name="comment"></textarea>
                         </div>
                         <button type="submit" class="btn btn-primary">Hantar</button>
                     </form>
                 </div>
             </div>
             <!-- Single Comment -->
-            <div class="media mb-4">
-                <img class="d-flex mr-3 rounded-circle" src="http://placehold.it/50x50" alt="">
-                <div class="media-body">
-                    <h5 class="mt-0">Commenter Name</h5>
-                    Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin. Cras
-                    purus odio, vestibulum in vulputate at, tempus viverra turpis. Fusce condimentum nunc ac nisi
-                    vulputate fringilla. Donec lacinia congue felis in faucibus.
-                </div>
-            </div>
+            {% if comments %}
+                {% for comment in comments %}
+                    <div class="media mb-4">
+                        <img class="d-flex mr-3 rounded-circle" src="{% static 'images/user_img.png' %}" alt="" width="50px" height="50px">
+                        <div class="media-body">
+                            <h5 class="mt-0">{{ comment.username }}</h5>
+                            {{ comment.content }}
+                        </div>
+                        <small>{{ comment.date }}</small>
+                    </div>
+                {% endfor %}
+            {% endif %}
         </div>
         <!-- Sidebar Widgets Column -->
         <div class="col-md-4">
@@ -76,21 +69,21 @@
                     <div class="row" style="padding-left: 20px;">
                         <ul class="list-unstyled mb-0">
                             <li>
-                                <a href="/computational_thinking">Teknik Pemikiran Komputasional</a>
+                                <a href="/curriculum/computational_thinking">Teknik Pemikiran Komputasional</a>
                             </li>
                             <li>
-                                <a href="#">Perwakilan Data</a>
+                                <a href="/curriculum/data_representation">Perwakilan Data</a>
                             </li>
                             <li>
-                                <a href="#">Algorithma</a>
+                                <a href="/curriculum/algorithms">Algorithma</a>
                             </li>
                             <li>
-                                <a href="#">Kod Arahan</a>
+                                <a href="/curriculum/code">Kod Arahan</a>
                             </li>
-                            <hr>
-                            <li>
-                                <a href="#">Kalkulator Penukaran Asas</a>
-                            </li>
+<!--                            <hr>-->
+<!--                            <li>-->
+<!--                                <a href="#">Kalkulator Penukaran Asas</a>-->
+<!--                            </li>-->
                         </ul>
                     </div>
                 </div>
@@ -110,5 +103,4 @@
         </div>
     </div>
 </div>
-<script src="{% static 'curriculum/base.js' %}"></script>
 {% endblock content %}
