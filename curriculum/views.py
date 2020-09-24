@@ -20,11 +20,12 @@ def preprocess(func):
         comments = Comment.objects.all()
         kwargs["comments"] = comments
 
+        # Get name by path, refer to .urls.py for more infomation
+        path_name = resolve(request.path_info).url_name
+        kwargs["page"] = path_name
         if request.method == "POST":
             data = dict(parse.parse_qsl(request.body))
             Comment(username=data[b'username'].decode(), content=data[b'comment'].decode()).save()
-            # Get name by path, refer to .urls.py for more infomation
-            path_name = resolve(request.path_info).url_name
             # Redirect POST to GET, preventing reeated POST on reload
             return redirect(path_name)
         return func(request)
