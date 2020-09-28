@@ -12,5 +12,5 @@ class Comment(models.Model):
     date = models.DateTimeField(auto_now_add=True)
     page = models.CharField(default="comp_t", blank=False, max_length=10, choices=[('comp_t', "Computational Thinking"),
                                                                                    ('data_r', "Data Representation"),
-                                                                                   ('algo', 'algorithms'),
+                                                                                   ('algo', 'Algorithms'),
                                                                                    ('code', 'Code')])

@@ -25,7 +25,7 @@ def preprocess(func):
         kwargs["page"] = path_name
         if request.method == "POST":
             data = dict(parse.parse_qsl(request.body))
-            Comment(username=data[b'username'].decode(), content=data[b'comment'].decode()).save()
+            Comment(username=data[b'username'].decode(), content=data[b'comment'].decode(), page=path_name).save()
             # Redirect POST to GET, preventing reeated POST on reload
             return redirect(path_name)
         return func(request)
