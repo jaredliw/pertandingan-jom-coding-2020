@@ -1,4 +1,92 @@
 {% extends 'curriculum/base.html'%}
-{% block material %}
+{% load static %}
 
+{% block material %}
+<p class="has-line-data" data-line-start="0" data-line-end="4">Algoritma bermaksud <strong>tatacara yang menyatakan tindakan-tindakan</strong> yang perlu dilaksanakan dan urutan tindakan untuk menyelesaikan sesuatu masalah.</p>
+<p class="has-line-data" data-line-start="5" data-line-end="6">Algoritma diwakilkan melalui pelbagai cara, khususnya:</p>
+<ul>
+<li class="has-line-data" data-line-start="6" data-line-end="7">pseudokod</li>
+<li class="has-line-data" data-line-start="7" data-line-end="9">carta alir</li>
+</ul>
+<hr>
+<h3 class="code-line" data-line-start=11 data-line-end=12><a id="Pseudokod_11"></a>Pseudokod</h3>
+<ul>
+<li class="has-line-data" data-line-start="12" data-line-end="14">Pseudokod memerihalkan langkah-langkah algoritma dengan menggunakan <strong>ayat-ayat yang ringkas dan padat</strong>.</li>
+</ul>
+<h3 class="code-line" data-line-start=14 data-line-end=15><a id="Carta_Alir_14"></a>Carta Alir</h3>
+<ul>
+<li class="has-line-data" data-line-start="15" data-line-end="17">Carta Alir menggunakan <strong>simbol grafik seperti garis lurus, anak panah, dan bentuk geometri</strong> untuk mewakili urutan langkah bagi algoritma yang perlu dilaksanakan.</li>
+</ul>
+<hr>
+<h3 class="code-line" data-line-start=19 data-line-end=20><a id="Struktur_kawalan_pilihan_dan_ulangan_19"></a>Struktur kawalan pilihan dan ulangan</h3>
+<ul>
+<li class="has-line-data" data-line-start="20" data-line-end="21"><strong>Struktur kawalan pilihan tunggal <em>(single selection)</em></strong></li>
+<li class="has-line-data" data-line-start="21" data-line-end="22"><strong>Struktur kawalan dwipilihan <em>(double selection)</em></strong></li>
+<li class="has-line-data" data-line-start="22" data-line-end="23"><strong>Struktur kawalan pelbagai pilihan <em>(multi selection)</em></strong></li>
+<li class="has-line-data" data-line-start="23" data-line-end="24"><strong>Struktur kawalan ulangan Untuk <em>(FOR)</em></strong></li>
+<li class="has-line-data" data-line-start="24" data-line-end="25"><strong>Struktur kawalan ulangan Selagi <em>(WHILE)</em></strong></li>
+<li class="has-line-data" data-line-start="25" data-line-end="27"><strong>Struktur kawalan Ulang-sehingga <em>(REPEAT-UNTIL)</em></strong></li>
+</ul>
+<hr>
+<h4 class="code-line" data-line-start=29 data-line-end=30><a id="Struktur_kawalan_pilihan_tunggal__single_selection__29"></a>Struktur kawalan pilihan tunggal <em>(single selection)</em></h4>
+<ul>
+<li class="has-line-data" data-line-start="30" data-line-end="31">Hanya mempunyai satu pilihan untuk melaksanakan satu set tindakan yang tertentu.</li>
+<li class="has-line-data" data-line-start="31" data-line-end="33">Contoh pseudokod bagi struktur kawalan pilihan tunggal:<br>
+<img src="{% static 'images/13.png' %}" alt=""></li>
+<li class="has-line-data" data-line-start="33" data-line-end="36">Carta alir bagi pseudokod di atas:<br>
+<img src="{% static 'images/14.png' %}" alt=""></li>
+</ul>
+<hr>
+<h4 class="code-line" data-line-start=38 data-line-end=39><a id="Struktur_kawalan_dwipilihan__double_selection__38"></a>Struktur kawalan dwipilihan <em>(double selection)</em></h4>
+<ul>
+<li class="has-line-data" data-line-start="39" data-line-end="40">Memilih antara dua tindakan atau dua set tindakan untuk dilaksanakan.</li>
+<li class="has-line-data" data-line-start="40" data-line-end="42">Contoh pseudokod bagi struktur kawalan dwipilihan:<br>
+<img src="{% static 'images/15.png' %}" alt=""></li>
+<li class="has-line-data" data-line-start="42" data-line-end="45">Carta alir bagi pseudokod di atas:<br>
+<img src="{% static 'images/16.png' %}" alt=""></li>
+</ul>
+<hr>
+<h4 class="code-line" data-line-start=47 data-line-end=48><a id="Struktur_kawalan_pelbagai_pilihan__multi_selection__47"></a>Struktur kawalan pelbagai pilihan <em>(multi selection)</em></h4>
+<ul>
+<li class="has-line-data" data-line-start="48" data-line-end="49">Mengandungi lebih daripada dua set tindakan yang berlainan sebagai pilihan untuk dilaksanakan.</li>
+<li class="has-line-data" data-line-start="49" data-line-end="51">Contoh pseudokod bagi struktur kawalan pelbagai pilihan :<br>
+<img src="{% static 'images/17.png' %}" alt=""></li>
+<li class="has-line-data" data-line-start="51" data-line-end="54">Carta alir bagi pseudokod di atas:<br>
+<img src="{% static 'images/18.png' %}" alt=""></li>
+</ul>
+<hr>
+<h4 class="code-line" data-line-start=56 data-line-end=57><a id="Struktur_kawalan_ulangan_Untuk__FOR__56"></a>Struktur kawalan ulangan Untuk <em>(FOR)</em></h4>
+<ul>
+<li class="has-line-data" data-line-start="57" data-line-end="59">melaksanakan satu langkah atau satu set langkah berdasarkan pembilangan yang telah ditetapkan.</li>
+</ul>
+<hr>
+<h4 class="code-line" data-line-start=61 data-line-end=62><a id="Struktur_kawalan_ulangan_Selagi__WHILE__61"></a>Struktur kawalan ulangan Selagi <em>(WHILE)</em></h4>
+<ul>
+<li class="has-line-data" data-line-start="62" data-line-end="64">akan melaksanakan satu langkah atau satu set langkah selagi satu syarat yang diuji adalah benar.</li>
+</ul>
+<hr>
+<h4 class="code-line" data-line-start=66 data-line-end=67><a id="Struktur_kawalan_UlangsehinggaREPEATUNTIL_66"></a>Struktur kawalan Ulang-sehingga(REPEAT-UNTIL)</h4>
+<ul>
+<li class="has-line-data" data-line-start="67" data-line-end="69">akan melaksanakan satu langkah atau satu set langkah secara berulang-ulang sehingga syarat yang diuji adalah benar.</li>
+</ul>
+<hr>
+<h3 class="code-line" data-line-start=71 data-line-end=72><a id="Pengesanan_Ralat_yang_Terdapat_dalam_Pseudokod_dan_Carta_Alir_71"></a>Pengesanan Ralat yang Terdapat dalam Pseudokod dan Carta Alir</h3>
+<p class="has-line-data" data-line-start="72" data-line-end="73">Jenis ralat yang biasa dijumpai ialah <strong>ralat logik</strong>, iaitu ralat yang menyebabkan sesuatu algoritma <strong>tidak menghasilkan output yang diingini</strong>. Ralat logik terjadi apabila <strong>tindakan atau langkah-langkah yang salah diminta untuk dilaksanakan</strong> atau <strong>urutan pelaksanaan tindakan tidak betul</strong>.</p>
+<p class="has-line-data" data-line-start="74" data-line-end="75">Teknik semakan ralat semula yang boleh dilakukan untuk menyahpepijat ialah:</p>
+<ul>
+<li class="has-line-data" data-line-start="75" data-line-end="76"><strong>Teknik semakan meja <em>(Desk Check)</em></strong> ialah teknik di mana penyemak <strong>menggunakan satu sampel data input</strong> dan memproses data secara manual mengikut langkah algoritma. <strong>Output yang diperoleh dibandingkan dengan output yang dijangka</strong>.</li>
+<li class="has-line-data" data-line-start="76" data-line-end="78"><strong>Teknik langkah demi langkah <em>(Step Through)</em></strong> ialah teknik <strong>memeriksa logik algoritma secara langkah demi langkah</strong> mengikut urutan dalam algoritma.</li>
+</ul>
+<p class="has-line-data" data-line-start="78" data-line-end="79">Teknik semakan semula juga dikenali sebagai <strong>semakan kualiti <em>(Quality Check)</em></strong>.</p>
+<hr>
+<h3 class="code-line" data-line-start=82 data-line-end=83><a id="Penghasilan_Pseudokod_dan_Carta_Alir_bagi_Algoritma_yang_Melibatkan_Gabungan_Pelbagai_Pilihan_dan_Ulangan_82"></a>Penghasilan Pseudokod dan Carta Alir bagi Algoritma yang Melibatkan Gabungan Pelbagai Pilihan dan Ulangan</h3>
+<p class="has-line-data" data-line-start="83" data-line-end="84">Langkah-langkah menghasilkan pseudokod dan carta alir bagi sesuatu algoritma ialah:</p>
+<ol>
+<li class="has-line-data" data-line-start="84" data-line-end="85">Mengenal pasti masalah</li>
+<li class="has-line-data" data-line-start="85" data-line-end="86">Menentukan data yang perlu digunakan</li>
+<li class="has-line-data" data-line-start="86" data-line-end="87">Menentukan proses atau tugas yang perlu dilaksanakan</li>
+<li class="has-line-data" data-line-start="87" data-line-end="88">Menentukan output yang diingini</li>
+<li class="has-line-data" data-line-start="88" data-line-end="89">Mereka bentuk algoritma</li>
+<li class="has-line-data" data-line-start="89" data-line-end="90">Menulis pseudokod dan melukis carta alir bagi sesuatu algoritma</li>
+</ol>
 {% endblock material %}
