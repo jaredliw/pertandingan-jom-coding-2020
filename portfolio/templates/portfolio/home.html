@@ -1,6 +1,78 @@
 {% extends 'home/base.html' %}
 {% load static %}
 
-{% block content %}
+{% block additional_header %}
+<link href="{% static 'curriculum/base.css' %}" rel="stylesheet"/>
+<link href="{% static 'portfolio/portfolio.css' %}" rel="stylesheet"/>
+{% endblock additional_header %}
 
+{% block content %}
+<div class="container">
+    <!-- Heading -->
+    <h1 class="my-4">Portfolio
+        <small><small><small>SMK Tinggi Batu Pahat</small></small></small>
+    </h1>
+    <!-- Row -->
+    <div class="row">
+        <div class="col-md-8">
+            <img class="img-fluid" src="{% static 'images/cover.png' %}" alt="">
+        </div>
+        <div class="col-md-4">
+            <h3 class="my-3">Makmal Komputer</h3>
+            <p>Terdapat dua makmal komputer yang dilengkapi dengan pelbagai fasiliti di SMKTBP.</p>
+            <h3 class="my-3">Dilengkapi dengan:</h3>
+            <ul>
+                <li>40 buah kmputer</li>
+                <li>Pendingin hawa</li>
+                <li>Pelayan laman web sekolah</li>
+                <li>Mesin pencetak</li>
+            </ul>
+        </div>
+    </div>
+    <hr>
+    <!-- Teachers -->
+    <h2 class="my-4">Guru Mata Pelajaran Asas Sains Komputer</h2>
+    <!-- Project One -->
+    <div class="row">
+        <div class="col-md-7 img-center">
+            <img class="img-fluid rounded mb-3 mb-md-0" src="{% static 'images/mariatie.png' %}" width="370px" height="370px" alt="">
+        </div>
+        <div class="col-md-5">
+            <h3 class="cap">Pn. Mariatie binti Sidek</h3>
+            <p>Guru opsyen Teknologi Maklumat yang berpengalaman 3 tahun dalam pengajaran Asas Sains Komputer. Beliau merupakan seorang guru yang sabar, penyayang dan berpengetahuan dalam. Dengan usaha beliau, SMKTBP telah mencapai keputusan yang cemerlang dalam mata pelajaran ini.</p>
+            <div class="row">
+                <div class="col">
+                    <p class="cap"><strong>Pencapaian Akademik</strong></p>
+                </div>
+                <div class="col">
+                    <p>Ijazah Sarjana Muda (KEP) Kejuruteraan Sistem Maklumat (UiTM Shah Alam)</p>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col">
+                    <p class="cap"><strong>Kelulusan Ikhtisas</strong></p>
+                </div>
+                <div class="col">
+                    <p>Diploma Teknologi Maklumat (UTHM)</p>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col">
+                    <p class="cap"><strong>Pencapaian PT3 2019 (Kohort 1)</strong></p>
+                </div>
+                <div class="col">
+                    <p>35/44 CALON MENDAPAT GRED A</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <hr>
+    <!-- Footer-->
+    <footer class="bg-light py-3">
+        <div class="container">
+            <div class="small text-center text-muted">Copyright © 2020 Jared Liw Zhi Long - All Rights Reserved.
+            </div>
+        </div>
+    </footer>
+</div>
 {% endblock content %}
