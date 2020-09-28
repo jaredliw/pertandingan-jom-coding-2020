@@ -34,6 +34,7 @@ INSTALLED_APPS = [
     'home.apps.HomeConfig',
     'accounts.apps.AccountsConfig',
     'curriculum.apps.CurriculumConfig',
+    'portfolio.apps.PortfolioConfig',
     'quiz.apps.QuizConfig',
     'django.contrib.admin',
     'django.contrib.auth',
