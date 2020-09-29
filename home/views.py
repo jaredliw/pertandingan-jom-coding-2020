@@ -2,4 +2,7 @@ from django.shortcuts import render
 
 
 def home(request):
-    return render(request, "home/home.html")
+    kwargs = {
+        "home": 1
+    }
+    return render(request, "home/home.html", kwargs)
