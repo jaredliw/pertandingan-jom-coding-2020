@@ -14,7 +14,8 @@ function convertBase(hint) {
             document.getElementById("to-value").value = "";
             return;
         } else if (x == "") {
-
+            document.getElementById("to-value").value = "";
+            return
         } else if (!(/^\d+$/.test(x))) { // check if input only contains digits
             msg.style.display = "block";
             msg.textContent = "Input asas 10 tidak sah. Sila memastikan input anda hanya mengandungi [0, 1, 2, 3, 4, 5, 6, 7, 8, 9].";
@@ -23,19 +24,20 @@ function convertBase(hint) {
         }
         document.getElementById("to-value").value = dec2bin(x);
     } else if (hint == "to") {
-        if (x > 11111111111111111111111111111111) {
-                msg.style.display = "block";
-                msg.textContent = "Input asas 2 terlalu besar untuk ditukarkan kepada asas 10. Sila cuba lagi dengan nilai yang lebih kecil.";
-                document.getElementById("to-value").value = "";
-                return;
-            } else if (x == "") {
-
-            } else if (!(/^\d+$/.test(x))) { // check if input only contains digits
-                msg.style.display = "block";
-                msg.textContent = "Input asas 2 tidak sah. Sila memastikan input anda hanya mengandungi [0, 1].";
-                document.getElementById("to-value").value = "";
-                return;
-            }
+        if (y > 111111111111111111111111111111111111111111) {
+            msg.style.display = "block";
+            msg.textContent = "Input asas 2 terlalu besar untuk ditukarkan kepada asas 10. Sila cuba lagi dengan nilai yang lebih kecil.";
+            document.getElementById("from-value").value = "";
+            return;
+        } else if (y == "") {
+            document.getElementById("from-value").value = "";
+            return;
+        } else if (!(/^[0,1]+$/.test(y))) { // check if input only contains digits
+            msg.style.display = "block";
+            msg.textContent = "Input asas 2 tidak sah. Sila memastikan input anda hanya mengandungi [0, 1].";
+            document.getElementById("from-value").value = "";
+            return;
+        }
         document.getElementById("from-value").value = parseInt(y, 2);
     }
     msg.style.display = "none";
