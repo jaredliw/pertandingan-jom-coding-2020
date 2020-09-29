@@ -32,7 +32,6 @@ ALLOWED_HOSTS = ["10.0.0.87"]
 
 INSTALLED_APPS = [
     'home.apps.HomeConfig',
-    'accounts.apps.AccountsConfig',
     'curriculum.apps.CurriculumConfig',
     'portfolio.apps.PortfolioConfig',
     'quiz.apps.QuizConfig',
