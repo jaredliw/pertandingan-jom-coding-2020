@@ -13,17 +13,18 @@
                 <div class="question bg-white p-3 border-bottom">
                     <!-- Quiz Title -->
                     <div class="d-flex flex-row justify-content-between align-items-center mcq">
-                        <h4>Kuiz {{ quiz_name }}</h4><span>({{ page_now }} daripada {{ page_total }})</span>
+                        <h4>Kuiz {{ quiz_name }}</h4><span>({{ page }} daripada {{ page_total }})</span>
                     </div>
                 </div>
                 <form class="question bg-white p-3 border-bottom" id="q_form" method="POST">
                     {% csrf_token %}
-                    <input name="page" type="hidden" value="{{ page_now }}"/>
+                    <input name="page" type="hidden" value="{{ page }}"/>
                     <input name="qn_id" type="hidden" value="{{ question.qn_id }}"/>
                     <input name="qn_seed" type="hidden" value="{{ qn_seed }}"/>
                     <input name="opt_seed" type="hidden" value="{{ opt_seed }}"/>
+                    <input name="load_next" type="hidden" value="{% if messages %}1{% else %}0{% endif %}"/>
                     <div class="d-flex flex-row align-items-center question-title">
-                        <h3 class="text-danger">S{{ page_now }}.</h3>
+                        <h3 class="text-danger">S{{ page }}.</h3>
                         <h5 class="mt-1 ml-2">{{ question.statement }}</h5>
                     </div>
                     <fieldset id="user_opt">
@@ -60,10 +61,16 @@
                         </div>
                     {% endfor %}
                     <div class="d-flex flex-row justify-content-between align-items-center p-3 bg-white">
-                        <button class="btn btn-primary border-success align-items-center btn-success" type="submit" form="next_form" {% if page_now == page_total %} disabled{% endif %}>
-                            Seterusnya
-                        <i class="fa fa-angle-right ml-2"></i>
-                        </button>
+                        {% if page == page_total %}
+                            <button class="btn btn-primary border-success align-items-center btn-danger">
+                                Tamat
+                            </button>
+                        {% else %}
+                            <button class="btn btn-primary border-success align-items-center btn-success" type="submit" form="q_form">
+                                Seterusnya
+                            <i class="fa fa-angle-right ml-2"></i>
+                            </button>
+                        {% endif %}
                     </div>
                 {% else %}
                     <div class="d-flex flex-row justify-content-between align-items-center p-3 bg-white">
