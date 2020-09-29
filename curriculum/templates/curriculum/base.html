@@ -11,55 +11,55 @@
         <!-- Content Column -->
         <div class="col-lg-8">
             <h1 class="mt-4">{{ title }}</h1>
-            <p class="lead">
-                <small>karya</small>
-                <a>{{ author }}</a>
-            </p>
-            <hr>
-            <!-- Preview Image -->
-            <img class="img-fluid rounded" src="{% static '' %}{{ cover_img }}" alt="" width="900px" height="300px">
+            {% if not tool_mode %}
+                <p class="lead">
+                    <small>karya</small>
+                    <a>{{ author }}</a>
+                </p>
+                <hr>
+                <!-- Preview Image -->
+                <img class="img-fluid rounded" src="{% static '' %}{{ cover_img }}" alt="" width="900px" height="300px">
+            {% endif %}
             <hr>
             <!-- Content -->
-            <p class="lead">{{ subtitle }}</p>
             {% block material %}
             {% endblock material %}
-            <hr>
-            <p>Uji kefahaman anda tentang topik ini dengan mengambil kuiz di bawah:</p>
-            <div class="text-center">
-                <form action="/">
-                    <input type="submit" class="btn btn-primary" value="Kuiz"/>
-                </form>
-            </div>
-            <hr>
-            <!-- Comments Form -->
-            <div class="card my-4">
-                <h5 class="card-header">Tinggalkan komen anda:</h5>
-                <div class="card-body">
-                    <form method="POST">
-                        {% csrf_token %}
-                        <div class="form-group">
-                            <input class="form-control" placeholder="Nama anda" name="username"/>
-                            <br>
-                            <textarea class="form-control" rows="3" placeholder="Komen" name="comment"></textarea>
-                        </div>
-                        <button type="submit" class="btn btn-primary">Hantar</button>
-                    </form>
+            {% if not tool_mode %}
+                <hr>
+                <p>Uji kefahaman anda tentang topik ini dengan mengambil kuiz di bawah:</p>
+                <div class="text-center">
+                    <a class="btn btn-primary" href="{{ quiz_link }}">Kuiz</a>
                 </div>
-            </div>
-            <!-- Single Comment -->
-            {% if comments %}
-                {% for comment in comments %}
-                    {% if comment.page == page %}
-                        <div class="media mb-4">
-                            <img class="d-flex mr-3 rounded-circle" src="{% static 'images/user_img.png' %}" alt="" width="50px" height="50px">
-                            <div class="media-body">
-                                <h5 class="mt-0">{{ comment.username }}</h5>
-                                {{ comment.content }}
+                <hr>
+                <!-- Comments Form -->
+                <div class="card my-4">
+                    <h5 class="card-header">Tinggalkan komen anda:</h5>
+                    <div class="card-body">
+                        <form method="POST">
+                            {% csrf_token %}
+                            <div class="form-group">
+                                <input class="form-control" placeholder="Nama anda" name="username"/>
+                                <br>
+                                <textarea class="form-control" rows="3" placeholder="Komen" name="comment"></textarea>
                             </div>
-                            <small>{{ comment.date }}</small>
-                        </div>
-                    {% endif %}
-                {% endfor %}
+                            <button type="submit" class="btn btn-primary">Hantar</button>
+                        </form>
+                    </div>
+                </div>
+                {% if comments %}
+                    {% for comment in comments %}
+                        {% if comment.page == page %}
+                            <div class="media mb-4">
+                                <img class="d-flex mr-3 rounded-circle" src="{% static 'images/user_img.png' %}" alt="" width="50px" height="50px">
+                                <div class="media-body">
+                                    <h5 class="mt-0">{{ comment.username }}</h5>
+                                    {{ comment.content }}
+                                </div>
+                                <small>{{ comment.date }}</small>
+                            </div>
+                        {% endif %}
+                    {% endfor %}
+                {% endif %}
             {% endif %}
         </div>
         <!-- Sidebar Widgets Column -->
@@ -70,7 +70,7 @@
                 <div class="card-body">
                     <div class="row" style="padding-left: 20px;">
                         <ul class="list-unstyled mb-0">
-                            <p>Pembelajaran</p>
+                            <p>Pengajaran dan Pembelajaran</p>
                             <li>
                                 <a href="/curriculum/computational_thinking">Teknik Pemikiran Komputasional</a>
                             </li>
@@ -78,19 +78,20 @@
                                 <a href="/curriculum/data_representation">Perwakilan Data</a>
                             </li>
                             <li>
-                                <a href="/curriculum/algorithms">Algorithma</a>
+                                <a href="/curriculum/algorithms">Algoritma</a>
                             </li>
                             <li>
                                 <a href="/curriculum/code">Kod Arahan</a>
                             </li>
-<!--                            <hr>-->
-<!--                            <li>-->
-<!--                                <a href="#">Kalkulator Penukaran Asas</a>-->
-<!--                            </li>-->
+                            <hr>
+                            <p>Peralatan</p>
+                            <li>
+                                <a href="/curriculum/base_converter">Penukar Asas Nombor</a>
+                            </li>
                             <hr>
                             <p>Maklumat Tambahan</p>
                             <li>
-                                <a href="{% static 'images/DSKP KSSM Tingkatan 1 Asas Sains Komputer.pdf' %}" download="">DSKP KSSM Tingkatan 1 ASK</a>
+                                <a href="{% static 'files/DSKP KSSM Tingkatan 1 Asas Sains Komputer.pdf' %}" download="">DSKP KSSM Tingkatan 1 ASK</a>
                             </li>
                         </ul>
                     </div>
@@ -118,4 +119,5 @@
         </div>
     </div>
 </footer>
+<script src="{% static 'curriculum/base.js' %}"></script>
 {% endblock content %}

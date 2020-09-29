@@ -7,4 +7,5 @@ urlpatterns = [
     path('data_representation', views.data_r, name='data_r'),
     path('algorithms', views.algo, name='algo'),
     path('code', views.code, name='code'),
+    path('base_converter', views.base_c, name='base_c')
 ]

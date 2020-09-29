@@ -17,10 +17,9 @@ def get_qn(path_name, qn_seed, n=1):
     # Set seed
     seed(qn_seed)
     # Pick a random question
-    qns = Question.objects.filter(page=path_name)
-    for _ in range(n):
-        qn = choice(qns)
-    return qn
+    qns = list(Question.objects.filter(page=path_name))
+    shuffle(qns)
+    return qns[n-1]
 
 def shuffle_opt(qn, opt_seed):
     # Set seed

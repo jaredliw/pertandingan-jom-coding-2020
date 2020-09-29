@@ -12,6 +12,8 @@ kwargs = {
 
 def preprocess(func):
     def process(request):
+        kwargs["tool_mode"] = 0
+
         quotes = Quote.objects.all()
         quote = choice(quotes)
         kwargs["quote"] = quote.quote
@@ -35,26 +37,31 @@ def preprocess(func):
 def comp_t(request):
     kwargs["title"] = "Teknik Pemikiran Komputasional"
     kwargs["cover_img"] = "images/cover_1.jpg"
-    kwargs["subtitile"] = "to be added..."
+    kwargs["quiz_link"] = "../quiz/computational_thinking"
     return render(request, 'curriculum/comp_t.html', kwargs)
 
 @preprocess
 def data_r(request):
     kwargs["title"] = "Perwakilan Data"
     kwargs["cover_img"] = "images/cover_2.jpg"
-    kwargs["subtitile"] = "to be added..."
+    kwargs["quiz_link"] = "../quiz/data_representation"
     return render(request, 'curriculum/data_r.html', kwargs)
 
 @preprocess
 def algo(request):
-    kwargs["title"] = "Algorithma"
+    kwargs["title"] = "Algoritma"
     kwargs["cover_img"] = "images/cover_3.jpg"
-    kwargs["subtitile"] = "to be added..."
+    kwargs["quiz_link"] = "../quiz/algorithms"
     return render(request, 'curriculum/algo.html', kwargs)
 
 @preprocess
 def code(request):
     kwargs["title"] = "Kod Arahan"
     kwargs["cover_img"] = "images/cover_4.jpg"
-    kwargs["subtitile"] = "to be added..."
+    kwargs["quiz_link"] = "../quiz/code"
     return render(request, 'curriculum/code.html', kwargs)
+
+def base_c(request):
+    kwargs["title"] = "Penukar Asas Nombor"
+    kwargs["tool_mode"] = 1
+    return render(request, 'curriculum/base_c.html', kwargs)
