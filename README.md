@@ -19,7 +19,7 @@ Antara pengisian yang boleh dimasukkan dalam laman web tersebut;-
 > Eksplorasi Dunia Asas Sains Komputer
   
 ## Video Penerangan
-[](https://youtu.be/c96yuXyCA9I)
+[Video](https://youtu.be/c96yuXyCA9I)
 
 ## Pemasangan
 1. Memasang `Python 3.6` melalui [python.org](python.org).
