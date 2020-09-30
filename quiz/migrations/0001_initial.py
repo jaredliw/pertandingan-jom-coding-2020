@@ -4,7 +4,6 @@ from django.db import migrations, models
 
 
 class Migration(migrations.Migration):
-
     initial = True
 
     dependencies = [
@@ -20,7 +19,9 @@ class Migration(migrations.Migration):
                 ('op2', models.TextField()),
                 ('op3', models.TextField()),
                 ('op4', models.TextField()),
-                ('answer', models.TextField(choices=[(models.TextField(), 'Option 1'), (models.TextField(), 'Option 2'), (models.TextField(), 'Option 3'), (models.TextField(), 'Option 4')])),
+                ('answer', models.TextField(choices=[(models.TextField(), 'Option 1'), (models.TextField(), 'Option 2'),
+                                                     (models.TextField(), 'Option 3'),
+                                                     (models.TextField(), 'Option 4')])),
             ],
         ),
     ]

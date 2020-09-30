@@ -4,7 +4,6 @@ from django.db import migrations, models
 
 
 class Migration(migrations.Migration):
-
     dependencies = [
         ('quiz', '0003_question_page'),
     ]
@@ -13,6 +12,8 @@ class Migration(migrations.Migration):
         migrations.AlterField(
             model_name='question',
             name='page',
-            field=models.CharField(choices=[('q-comp_t', 'Computational Thinking'), ('q-data_r', 'Data Representation'), ('q-algo', 'algorithms'), ('q-code', 'Code')], default='comp_t', max_length=10),
+            field=models.CharField(choices=[('q-comp_t', 'Computational Thinking'), ('q-data_r', 'Data Representation'),
+                                            ('q-algo', 'algorithms'), ('q-code', 'Code')], default='comp_t',
+                                   max_length=10),
         ),
     ]

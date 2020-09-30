@@ -30,54 +30,60 @@
                     <fieldset id="user_opt">
                         <div class="ans ml-2">
                             <label class="radio">
-                                <input id="opt1" name="user_opt" type="radio" value="opt1" {{ status }} {{ opt1_selected }}/>
+                                <input id="opt1" name="user_opt" type="radio" value="opt1" {{ status }} {{ opt1_selected
+                                       }}/>
                                 <span>A. {{ question.opt1 }}</span>
                             </label>
                         </div>
                         <div class="ans ml-2">
                             <label class="radio">
-                                <input id="opt2" name="user_opt" type="radio" value="opt2" {{ status }} {{ opt2_selected }}/>
+                                <input id="opt2" name="user_opt" type="radio" value="opt2" {{ status }} {{ opt2_selected
+                                       }}/>
                                 <span>B. {{ question.opt2 }}</span>
                             </label>
                         </div>
                         <div class="ans ml-2">
                             <label class="radio">
-                                <input id="opt3" name="user_opt" type="radio" value="opt3" {{ status }} {{ opt3_selected }}/>
+                                <input id="opt3" name="user_opt" type="radio" value="opt3" {{ status }} {{ opt3_selected
+                                       }}/>
                                 <span>C. {{ question.opt3 }}</span>
                             </label>
                         </div>
                         <div class="ans ml-2">
                             <label class="radio">
-                                <input id="opt4" name="user_opt" type="radio" value="opt4" {{ status }} {{ opt4_selected }}/>
+                                <input id="opt4" name="user_opt" type="radio" value="opt4" {{ status }} {{ opt4_selected
+                                       }}/>
                                 <span>D. {{ question.opt4 }}</span>
                             </label>
                         </div>
                     </fieldset>
                 </form>
                 {% if messages %}
-                    {% for message in messages %}
-                        <div class="alert alert-{% if message.tags == 'error' %}danger{% else %}{{ message.tags }}{% endif %}">
-                            {{ message }}
-                        </div>
-                    {% endfor %}
-                    <div class="d-flex flex-row justify-content-between align-items-center p-3 bg-white">
-                        {% if page == page_total %}
-                            <a class="btn btn-primary border-success align-items-center btn-danger" href="/">
-                                Tamat
-                            </a>
-                        {% else %}
-                            <button class="btn btn-primary border-success align-items-center btn-success" type="submit" form="q_form">
-                                Seterusnya
-                            <i class="fa fa-angle-right ml-2"></i>
-                            </button>
-                        {% endif %}
-                    </div>
+                {% for message in messages %}
+                <div class="alert alert-{% if message.tags == 'error' %}danger{% else %}{{ message.tags }}{% endif %}">
+                    {{ message }}
+                </div>
+                {% endfor %}
+                <div class="d-flex flex-row justify-content-between align-items-center p-3 bg-white">
+                    {% if page == page_total %}
+                    <a class="btn btn-primary border-success align-items-center btn-danger" href="/">
+                        Tamat
+                    </a>
+                    {% else %}
+                    <button class="btn btn-primary border-success align-items-center btn-success" type="submit"
+                            form="q_form">
+                        Seterusnya
+                        <i class="fa fa-angle-right ml-2"></i>
+                    </button>
+                    {% endif %}
+                </div>
                 {% else %}
-                    <div class="d-flex flex-row justify-content-between align-items-center p-3 bg-white">
-                        <button id="pass_up_ans" class="btn btn-primary d-flex align-items-center btn-warning" type="submit" form="q_form">
-                            Hantar
-                        </button>
-                    </div>
+                <div class="d-flex flex-row justify-content-between align-items-center p-3 bg-white">
+                    <button id="pass_up_ans" class="btn btn-primary d-flex align-items-center btn-warning" type="submit"
+                            form="q_form">
+                        Hantar
+                    </button>
+                </div>
                 {% endif %}
             </div>
         </div>

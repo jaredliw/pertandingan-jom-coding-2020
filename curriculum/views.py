@@ -1,14 +1,17 @@
-from django.shortcuts import render, redirect
-from django.urls import resolve
-from .models import Quote, Comment
 from random import choice
 from urllib import parse
+
+from django.shortcuts import render, redirect
+from django.urls import resolve
+
+from .models import Quote, Comment
 
 kwargs = {
     "nav_styling": "background-color: #FFF;",
     "nav_text_styling": "color: #000;",
     "author": "Jayden Teh Jing Siang"
 }
+
 
 def preprocess(func):
     def process(request):
@@ -31,7 +34,9 @@ def preprocess(func):
             # Redirect POST to GET, preventing reeated POST on reload
             return redirect(path_name)
         return func(request)
+
     return process
+
 
 @preprocess
 def comp_t(request):
@@ -40,12 +45,14 @@ def comp_t(request):
     kwargs["quiz_link"] = "../quiz/computational_thinking"
     return render(request, 'curriculum/comp_t.html', kwargs)
 
+
 @preprocess
 def data_r(request):
     kwargs["title"] = "Perwakilan Data"
     kwargs["cover_img"] = "images/cover_2.jpg"
     kwargs["quiz_link"] = "../quiz/data_representation"
     return render(request, 'curriculum/data_r.html', kwargs)
+
 
 @preprocess
 def algo(request):
@@ -54,12 +61,14 @@ def algo(request):
     kwargs["quiz_link"] = "../quiz/algorithms"
     return render(request, 'curriculum/algo.html', kwargs)
 
+
 @preprocess
 def code(request):
     kwargs["title"] = "Kod Arahan"
     kwargs["cover_img"] = "images/cover_4.jpg"
     kwargs["quiz_link"] = "../quiz/code"
     return render(request, 'curriculum/code.html', kwargs)
+
 
 def base_c(request):
     kwargs["title"] = "Penukar Asas Nombor"

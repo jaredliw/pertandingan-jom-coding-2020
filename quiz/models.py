@@ -18,8 +18,8 @@ class Question(models.Model):
             ("opt4", "Option 4")
         ]
     )
-    page = models.CharField(default="comp_t", blank=False, max_length=10, choices=[('q-comp_t', "Computational Thinking"),
-                                                                                   ('q-data_r', "Data Representation"),
-                                                                                   ('q-algo', 'algorithms'),
-                                                                                   ('q-code', 'Code')])
-
+    page = models.CharField(default="comp_t", blank=False, max_length=10,
+                            choices=[('q-comp_t', "Computational Thinking"),
+                                     ('q-data_r', "Data Representation"),
+                                     ('q-algo', 'algorithms'),
+                                     ('q-code', 'Code')])

@@ -4,7 +4,6 @@ from django.db import migrations, models
 
 
 class Migration(migrations.Migration):
-
     dependencies = [
         ('quiz', '0004_auto_20200924_2109'),
     ]
@@ -33,6 +32,7 @@ class Migration(migrations.Migration):
         migrations.AlterField(
             model_name='question',
             name='answer',
-            field=models.TextField(choices=[('opt1', 'Option 1'), ('opt2', 'Option 2'), ('opt3', 'Option 3'), ('opt4', 'Option 4')]),
+            field=models.TextField(
+                choices=[('opt1', 'Option 1'), ('opt2', 'Option 2'), ('opt3', 'Option 3'), ('opt4', 'Option 4')]),
         ),
     ]

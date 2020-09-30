@@ -4,7 +4,6 @@ from django.db import migrations, models
 
 
 class Migration(migrations.Migration):
-
     dependencies = [
         ('curriculum', '0004_auto_20200924_1237'),
     ]
@@ -13,6 +12,7 @@ class Migration(migrations.Migration):
         migrations.AddField(
             model_name='comment',
             name='page',
-            field=models.CharField(choices=[('comp_t', 'Computational Thinking'), ('data_r', 'Data Representation'), ('algo', 'algorithms'), ('code', 'Code')], default='comp_t', max_length=10),
+            field=models.CharField(choices=[('comp_t', 'Computational Thinking'), ('data_r', 'Data Representation'),
+                                            ('algo', 'algorithms'), ('code', 'Code')], default='comp_t', max_length=10),
         ),
     ]

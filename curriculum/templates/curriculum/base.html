@@ -2,7 +2,7 @@
 {% load static %}
 
 {% block additional_header %}
-<link href="{% static 'curriculum/base.css' %}" rel="stylesheet" />
+<link href="{% static 'curriculum/base.css' %}" rel="stylesheet"/>
 {% endblock additional_header %}
 
 {% block content %}
@@ -12,54 +12,56 @@
         <div class="col-lg-8">
             <h1 class="mt-4">{{ title }}</h1>
             {% if not tool_mode %}
-                <p class="lead">
-                    <small>karya</small>
-                    <a>{{ author }}</a>
-                </p>
-                <hr>
-                <!-- Preview Image -->
-                <img class="img-fluid rounded" src="{% static '' %}{{ cover_img }}" alt="" width="900px" height="300px">
+            <p class="lead">
+                <small>karya</small>
+                <a>{{ author }}</a>
+            </p>
+            <hr>
+            <!-- Preview Image -->
+            <img class="img-fluid rounded" src="{% static '' %}{{ cover_img }}" alt="" width="900px" height="300px">
             {% endif %}
             <hr>
             <!-- Content -->
             {% block material %}
             {% endblock material %}
             {% if not tool_mode %}
-                <hr>
-                <p>Uji kefahaman anda tentang topik ini dengan mengambil kuiz di bawah:</p>
-                <div class="text-center">
-                    <a class="btn btn-primary" href="{{ quiz_link }}">Kuiz</a>
+            <hr>
+            <p>Uji kefahaman anda tentang topik ini dengan mengambil kuiz di bawah:</p>
+            <div class="text-center">
+                <a class="btn btn-primary" href="{{ quiz_link }}">Kuiz</a>
+            </div>
+            <hr>
+            <!-- Comments Form -->
+            <div class="card my-4">
+                <h5 class="card-header">Tinggalkan komen anda:</h5>
+                <div class="card-body">
+                    <form method="POST">
+                        {% csrf_token %}
+                        <div class="form-group">
+                            <input class="form-control" placeholder="Nama anda" name="username" required/>
+                            <br>
+                            <textarea class="form-control" rows="3" placeholder="Komen" name="comment"
+                                      required></textarea>
+                        </div>
+                        <button type="submit" class="btn btn-primary">Hantar</button>
+                    </form>
                 </div>
-                <hr>
-                <!-- Comments Form -->
-                <div class="card my-4">
-                    <h5 class="card-header">Tinggalkan komen anda:</h5>
-                    <div class="card-body">
-                        <form method="POST">
-                            {% csrf_token %}
-                            <div class="form-group">
-                                <input class="form-control" placeholder="Nama anda" name="username"/>
-                                <br>
-                                <textarea class="form-control" rows="3" placeholder="Komen" name="comment"></textarea>
-                            </div>
-                            <button type="submit" class="btn btn-primary">Hantar</button>
-                        </form>
-                    </div>
+            </div>
+            {% if comments %}
+            {% for comment in comments %}
+            {% if comment.page == page %}
+            <div class="media mb-4">
+                <img class="d-flex mr-3 rounded-circle" src="{% static 'images/user_img.png' %}" alt="" width="50px"
+                     height="50px">
+                <div class="media-body">
+                    <h5 class="mt-0">{{ comment.username }}</h5>
+                    {{ comment.content }}
                 </div>
-                {% if comments %}
-                    {% for comment in comments %}
-                        {% if comment.page == page %}
-                            <div class="media mb-4">
-                                <img class="d-flex mr-3 rounded-circle" src="{% static 'images/user_img.png' %}" alt="" width="50px" height="50px">
-                                <div class="media-body">
-                                    <h5 class="mt-0">{{ comment.username }}</h5>
-                                    {{ comment.content }}
-                                </div>
-                                <small>{{ comment.date }}</small>
-                            </div>
-                        {% endif %}
-                    {% endfor %}
-                {% endif %}
+                <small>{{ comment.date }}</small>
+            </div>
+            {% endif %}
+            {% endfor %}
+            {% endif %}
             {% endif %}
         </div>
         <!-- Sidebar Widgets Column -->
@@ -91,7 +93,8 @@
                             <hr>
                             <p>Maklumat Tambahan</p>
                             <li>
-                                <a href="{% static 'files/DSKP KSSM Tingkatan 1 Asas Sains Komputer.pdf' %}" download="">DSKP KSSM Tingkatan 1 ASK</a>
+                                <a href="{% static 'files/DSKP KSSM Tingkatan 1 Asas Sains Komputer.pdf' %}"
+                                   download="">DSKP KSSM Tingkatan 1 ASK</a>
                             </li>
                         </ul>
                     </div>
@@ -102,11 +105,11 @@
                 <h5 class="card-header">Kata-kata Hikmat</h5>
                 <div class="card-body">
                     <blockquote class="blockquote">
-                <p class="mb-0">{{ quote }}</p>
-                <footer class="blockquote-footer">
-                    <cite title="Source Title">{{ quote_author }}</cite>
-                </footer>
-            </blockquote>
+                        <p class="mb-0">{{ quote }}</p>
+                        <footer class="blockquote-footer">
+                            <cite title="Source Title">{{ quote_author }}</cite>
+                        </footer>
+                    </blockquote>
                 </div>
             </div>
         </div>

@@ -40,25 +40,25 @@
         <div class="collapse navbar-collapse" id="navbarResponsive">
             <ul class="navbar-nav ml-auto my-2 my-lg-0">
                 {% if home %}
-                    <li class="nav-item"><a class="nav-link js-scroll-trigger" href="/#intro"
-                                            style="{{ nav_text_styling|default:';' }}">Pengenalan</a></li>
-                    <li class="nav-item"><a class="nav-link js-scroll-trigger" href="/#curriculum"
-                                            style="{{ nav_text_styling|default:';' }}">Kurikulum</a></li>
+                <li class="nav-item"><a class="nav-link js-scroll-trigger" href="/#intro"
+                                        style="{{ nav_text_styling|default:';' }}">Pengenalan</a></li>
+                <li class="nav-item"><a class="nav-link js-scroll-trigger" href="/#curriculum"
+                                        style="{{ nav_text_styling|default:';' }}">Kurikulum</a></li>
                 {% else %}
-                    <li class="nav-item"><a class="nav-link js-scroll-trigger" href="/"
+                <li class="nav-item"><a class="nav-link js-scroll-trigger" href="/"
                                         style="{{ nav_text_styling|default:';' }}">Utama</a></li>
                 {% endif %}
                 <li class="nav-item"><a class="nav-link js-scroll-trigger" href="/curriculum/computational_thinking"
                                         style="{{ nav_text_styling|default:';' }}">Blog</a></li>
                 {% if home %}
-                    <li class="nav-item"><a class="nav-link js-scroll-trigger" href="/#careers"
-                                            style="{{ nav_text_styling|default:';' }}">Kerjaya</a></li>
+                <li class="nav-item"><a class="nav-link js-scroll-trigger" href="/#careers"
+                                        style="{{ nav_text_styling|default:';' }}">Kerjaya</a></li>
                 {% endif %}
                 <li class="nav-item"><a class="nav-link js-scroll-trigger" href="/portfolio"
                                         style="{{ nav_text_styling|default:';' }}">Portfolio</a></li>
                 {% if home %}
-                    <li class="nav-item"><a class="nav-link js-scroll-trigger" href="/#contact"
-                                            style="{{ nav_text_styling|default:';' }}">Hubungi Kami</a></li>
+                <li class="nav-item"><a class="nav-link js-scroll-trigger" href="/#contact"
+                                        style="{{ nav_text_styling|default:';' }}">Hubungi Kami</a></li>
                 {% endif %}
             </ul>
         </div>

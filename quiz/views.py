@@ -1,10 +1,11 @@
-from django.shortcuts import render, redirect
-from django.contrib import messages
-from django.urls import resolve
-from random import choice, shuffle, randint, seed
+from random import shuffle, randint, seed
 from urllib import parse
-from .models import Question
 
+from django.contrib import messages
+from django.shortcuts import render
+from django.urls import resolve
+
+from .models import Question
 
 default_kwargs = {
     "nav_styling": "background-color: #FFF;",
@@ -13,13 +14,15 @@ default_kwargs = {
 
 kwargs = {}
 
+
 def get_qn(path_name, qn_seed, n=1):
     # Set seed
     seed(qn_seed)
     # Pick a random question
     qns = list(Question.objects.filter(page=path_name))
     shuffle(qns)
-    return qns[n-1]
+    return qns[n - 1]
+
 
 def shuffle_opt(qn, opt_seed):
     # Set seed
@@ -28,6 +31,7 @@ def shuffle_opt(qn, opt_seed):
     opt_l = [qn.opt1, qn.opt2, qn.opt3, qn.opt4]
     shuffle(opt_l)
     return opt_l
+
 
 def preprocess(func):
     def process(request):
@@ -91,22 +95,27 @@ def preprocess(func):
             kwargs["page"] = 1
             kwargs["page_total"] = Question.objects.filter(page=path_name).count()
             return func(request)
+
     return process
+
 
 @preprocess
 def comp_t(request):
     default_kwargs["quiz_name"] = "Pemikiran Komputasional"
     return render(request, 'quiz/base.html', {**kwargs, **default_kwargs})
 
+
 @preprocess
 def data_r(request):
     default_kwargs["quiz_name"] = "Perwakilan Data"
     return render(request, 'quiz/base.html', {**kwargs, **default_kwargs})
 
+
 @preprocess
 def algo(request):
     default_kwargs["quiz_name"] = "Algoritma"
     return render(request, 'quiz/base.html', {**kwargs, **default_kwargs})
+
 
 @preprocess
 def code(request):
